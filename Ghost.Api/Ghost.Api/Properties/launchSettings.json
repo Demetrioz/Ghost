@@ -16,7 +16,12 @@
       "launchUrl": "swagger",
       "applicationUrl": "http://localhost:5067",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "X__ApiKey": "",
+        "X__ApiSecret": "",
+        "X__AccessToken": "",
+        "X__AccessTokenSecret": "",
+        "X__BearerToken": ""
       }
     },
     "https": {
