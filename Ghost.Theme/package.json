@@ -1,8 +1,8 @@
 {
-  "name": "ghost-starter-theme",
-  "description": "A starter theme for Ghost theme development",
+  "name": "kevin-williams",
+  "description": "A custom theme for kevinwilliams.dev, built on the Ghost Starter Theme",
   "demo": "https://starter.ghost.io",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "engines": {
     "ghost": ">=5.0.0"
   },
@@ -18,9 +18,9 @@
     "pretest": "npm run build"
   },
   "author": {
-    "name": "Ghost Foundation",
-    "email": "hello@ghost.org",
-    "url": "https://ghost.org"
+    "name": "Kevin Williams",
+    "email": "kevin.williams@kevinwilliams.dev",
+    "url": "https://kevinwilliams.dev"
   },
   "gpm": {
     "type": "theme",
@@ -36,10 +36,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/TryGhost/Starter.git"
+    "url": "https://github.com/Demetrioz/Ghost"
   },
-  "bugs": "https://github.com/TryGhost/Starter/issues",
-  "contributors": "https://github.com/TryGhost/Starter/graphs/contributors",
+  "bugs": "https://github.com/Demetrioz/Ghost/issues",
+  "contributors": [],
   "devDependencies": {
     "@babel/core": "^7.21.0",
     "@babel/preset-env": "^7.20.2",
