@@ -1,5 +1,10 @@
+using Akka.Hosting;
 using Ghost.Api;
+using Ghost.Api.Configurations;
+using Ghost.Api.Core.Actors.Events;
+using Ghost.Api.Services.Authentication;
 using Ghost.Api.Services.X;
+using Microsoft.Win32;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,11 +15,22 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<XSettings>(
     builder.Configuration.GetSection(Configuration.X));
 
+builder.Services.Configure<AuthenticationSettings>(
+    builder.Configuration.GetSection(Configuration.Authentication));
+
 //////////////////////////////////////////
 //               Akka.Net               //
 //////////////////////////////////////////
 
-
+builder.Services.AddAkka("Api", (akkaBuilder, provider) =>
+{
+    akkaBuilder.WithActors((system, registry, resolver) =>
+    {
+        var props = resolver.Props<EventManager>();
+        var manager = system.ActorOf(props, nameof(EventManager));
+        registry.Register<EventManager>(manager);
+    });
+});
 
 //////////////////////////////////////////
 //          Additional Services         //
@@ -22,7 +38,8 @@ builder.Services.Configure<XSettings>(
 
 builder.Services
     .AddHttpClient()
-    .AddTransient<IXService, XService>();
+    .AddTransient<IXService, XService>()
+    .AddTransient<IAuthenticationService, AuthenticationService>();
 
 //////////////////////////////////////////
 //            MVC Components            //

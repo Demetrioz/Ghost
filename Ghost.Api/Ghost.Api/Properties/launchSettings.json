@@ -21,7 +21,9 @@
         "X__ApiSecret": "",
         "X__AccessToken": "",
         "X__AccessTokenSecret": "",
-        "X__BearerToken": ""
+        "X__BearerToken": "",
+        "Authentication__GhostClientId": "",
+        "Authentication__GhostClientSecret": ""
       }
     },
     "https": {
